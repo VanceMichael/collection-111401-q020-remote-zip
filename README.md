@@ -9,7 +9,7 @@
 - `npm test`：执行本地来源交互及收件存储测试。
 - `npm run build`：逐个检查模块语法。
 - `npm run demo`：启动本地来源，运行当前领取流程，打印真实收件结果后退出。
-- `npm start`：在 127.0.0.1:8080 启动本地来源，PORT 可调整。
+- `npm start`：在 127.0.0.1:8080 启动本地来源，PORT 可调整。`GET /health` 返回服务与当前来源版本；原有 `/_health` 仍可使用。
 
 容器方式：`docker build -t collection-remote-zip .`，然后 `docker run --rm --network none collection-remote-zip`。镜像构建属于环境准备，运行时不访问公网。
 
