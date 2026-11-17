@@ -15,6 +15,6 @@
 
 ## 项目结构
 
-`src/domain.mjs` 提供当前业务读取入口；`src/client.mjs` 负责人工指定地址的有限大小原始领取；`src/archive.mjs` 保存内容及来源凭据。`provider/` 是独立的本地来源服务，`docs/source-contract.md` 说明它的资料和状态约定。演示使用临时目录，正式接入可向业务入口传入持久目录。
+`src/domain.mjs` 提供当前业务读取入口（`receiveAuthorized` 按授权清单领取压缩包成员）；`src/client.mjs` 负责人工指定地址的有限大小原始领取；`src/archive.mjs` 保存内容及来源凭据。`src/remotemembers.mjs` 经来源目录的单范围请求领取授权成员，绑定压缩包版本、处理换版与续领，并写出成员—版本—清单对应的清单凭据；`src/zipdir.mjs` 解析结束目录（含 ZIP64）、中央目录、局部头与数据描述符并校验内容。`provider/` 是独立的本地来源服务，`docs/source-contract.md` 说明它的资料和状态约定。演示使用临时目录，正式接入可向业务入口传入持久目录。
 
 本地服务中的机构、记录和文件都是合成业务资料，不使用真实账号、个人信息或第三方站点数据。当前演示通常十秒内结束，全部本地测试应在六十秒内结束。
